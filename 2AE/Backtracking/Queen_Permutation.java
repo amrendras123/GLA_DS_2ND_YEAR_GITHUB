@@ -7,9 +7,11 @@ public class Queen_Permutation {
         int n=10;
         int tq=4;
         boolean[] box=new boolean[n];
+
         per(box,tq,0,"");
     }
     public static void per(boolean[] box,int tq,int qpsf,String ans){
+
         if(qpsf==tq){
             System.out.println(ans);
             return;
@@ -19,7 +21,9 @@ public class Queen_Permutation {
                 box[i]=true;
                 per(box, tq, qpsf+1, ans+"b"+i+"q"+qpsf);
                 box[i]=false;//backtracking
+
             }
         }
+        
     }
 }
