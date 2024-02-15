@@ -15,7 +15,7 @@ public class N_Queen {
            if(isitSafe(grid,col,row)){
             grid[row][col]=true;
             Queen(grid, row+1, tq-1);
-            grid[row][col]=false;
+            grid[row][col]=false;//backtracking
            }
         }
     }

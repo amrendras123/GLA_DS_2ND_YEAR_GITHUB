@@ -1,5 +1,9 @@
+import java.util.ArrayList;
+import java.util.*;
+
 public class Palindrome_Patrioning {
     public static void main(String[] args) {
+        List<List<String>> ans=new ArrayList<>();
         Part("aab","");
     }
     public static void Part(String ques,String ans){
