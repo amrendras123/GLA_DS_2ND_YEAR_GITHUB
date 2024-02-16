@@ -1,7 +1,7 @@
 public class N_Queen {
     public static void main(String[] args) { 
-        int tq=10;
-        int n=10;
+        int tq=4;
+        int n=4;
         boolean[][] grid=new boolean[n][n];
         Queen(grid,0,tq);
     }

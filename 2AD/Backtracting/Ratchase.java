@@ -34,10 +34,15 @@ public class Ratchase {
         }
         maze[cr][cc]='X';
         ans[cr][cc]=1;
-        RatChase_Cheese(maze, cr, cc-1,ans);//left
-        RatChase_Cheese(maze, cr, cc+1,ans);//right
-        RatChase_Cheese(maze, cr-1, cc,ans);//up
-        RatChase_Cheese(maze, cr+1, cc,ans);//down
+        int[] r={0,0,-1,1};
+        int[] c={-1,1,0,0};
+        for(int i=0;i<r.length;i++){
+            RatChase_Cheese(maze, cr+r[i], cc+c[i], ans);
+        }
+        // RatChase_Cheese(maze, cr, cc-1,ans);//left
+        // RatChase_Cheese(maze, cr, cc+1,ans);//right
+        // RatChase_Cheese(maze, cr-1, cc,ans);//up
+        // RatChase_Cheese(maze, cr+1, cc,ans);//down
         maze[cr][cc]='O';
         ans[cr][cc]=0;
 
