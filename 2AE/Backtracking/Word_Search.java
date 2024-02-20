@@ -1,27 +1,47 @@
+/**
+ * Word_Search
+ */
 public class Word_Search {
+
     public static void main(String[] args) {
-         String word="abcd";
-        char[][] board=new char[4][4];
-        search(board,0,0,word,0);
+        
+        char[][] board={
+            {'A','B','C','E'},
+            {'S','F','C','S'},
+            {'A','D','E','E'},
+         };
+         String word="DEF";
+         for(int i=0;i<board.length;i++){
+            for(int j=0;j<board[0].length;j++){
+                if(word.charAt(0)==board[i][j]){
+                   boolean ans= Search(board,word,i,j,0);
+                   if(ans==true){
+                    System.out.println(ans);
+                    return;
+                   }
+                }
+            }
+         }
+         System.out.println(false);
+         
     }
-    public static boolean search(char[][] board,int x,int y,String word,int i){
-
-
- if(i==word.length()){
-    return true;
- }
-        if(x<0||y<0||x>board.length||y>board[0].length){
+    public static boolean Search(char[][] board,String word,int row,int col,int idx){
+        if(idx==word.length()){
+            return true;
+        }
+        if(col<0||row<0||col>=board[0].length||row>=board.length||board[row][col]!=word.charAt(idx)){
             return false;
         }
-        if(board[x][y]!=word.charAt(i)){
-            return false;
+         board[row][col]='*';
+        int[] r={-1,1,0,0};
+        int[] c={0,0,-1,1};
+        for(int i=0;i<r.length;i++){
+         boolean ans= Search(board, word, row+r[i], col+c[i], idx+1);
+         if(ans){
+            return true;
+         }
         }
-       boolean exist= search(board, x+1, y, word, i+1)
-        ||search(board, x-1, y, word, i+1)
-        ||search(board, x, y+1, word, i+1)
-        ||search(board, x, y-1, word, i+1);
-
-        return exist;
-
+        board[row][col]=word.charAt(idx);
+        return false;
     }
 }
