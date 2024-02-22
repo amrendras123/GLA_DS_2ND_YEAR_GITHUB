@@ -1,10 +1,15 @@
+import java.util.Scanner;
+
 public class Generate_Permutation {
     
     public static void main(String[] args) {
-        per("abca","");
+        Scanner sc=new Scanner(System.in);
+        String str=sc.next();
+        per(str,"",str);
     }
-    public static void per(String s,String  ans){
+    public static void per(String s,String  ans,String orig){
         if(s.length()==0){
+            if(ans.compareTo(orig)>0)
             System.out.println(ans);
             return;
         }
@@ -21,7 +26,7 @@ public class Generate_Permutation {
             if(flag==false){
             String a=s.substring(0, i);
             String b=s.substring(i+1);
-            per(a+b, ans+ch);
+            per(a+b, ans+ch,orig);
             }
         }
     }
