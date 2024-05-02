@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class ValidParanthesis {
   
         public boolean isValid(String s) {
